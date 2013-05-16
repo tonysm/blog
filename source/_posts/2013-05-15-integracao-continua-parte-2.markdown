@@ -3,7 +3,7 @@ layout: post
 title: "Integração Contínua - parte 2"
 date: 2013-05-15 20:24
 comments: true
-categories: 
+categories: [introducao, introdução, integração contínua, ci, software, development, team, iniciante]
 ---
 {% img center /images/posts/phpci-all-builds-dashboard-banner.jpg builds de um projeto %}
 <!-- more -->
