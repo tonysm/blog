@@ -22,7 +22,7 @@ Bom, primeiramente vamos seguir o passo a passo para instalação:
 * clonar o repositório <code>git clone git clone https://github.com/Block8/PHPCI.git</code>
 * instalamos as dependências via composer: <code>composer install</code>
 * permissão de execução no bin console dentro do projeto: <code>chmod +x ./console</code>
-* criar o arquivo _config.php: <code>echo "&lt;?php" &gt; \_config.php</code>
+* criar o arquivo config.php: <code>echo "&lt;?php" &gt; config.php</code>
 * instalação do PHPCI: <code>./console phpci:install</code>
 
 Após esse passos, o console pedirá algumas informações para a configuração do PHPCI com o MySQL.
