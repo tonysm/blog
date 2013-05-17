@@ -12,7 +12,7 @@ Olá! Hoje o post vai ser mais rápido. Vou mostrar uma solução para concatena
 
 ## Show me the code!
 
-Primeiro, vamos definir nossa base de dados com duas tableas: *users* e *companies*, com a seguinte estrutura:
+Primeiro, vamos definir nossa base de dados com duas tabelas: *users* e *companies*, com a seguinte estrutura:
 
 {% codeblock lang:sql %}
 CREATE TABLE IF NOT EXISTS `companies` (
@@ -79,7 +79,7 @@ class User extends AppModel
 
 {% endcodeblock %}
 
-Perfeito! Temos os models e seus relacionamentos bem definidos! Agora, digamos que você queria apresentar os nomes dos usuários da aplicação concatenados com o nome da empresa ao qual ele pertence em um combobox. Dado o problema, vamos a primeira solução: adicionar o virtualField no model User...
+Perfeito! Temos os models e seus relacionamentos bem definidos! Agora, digamos que você queira apresentar os nomes dos usuários da aplicação concatenados com o nome da empresa a qual ele pertence em um combobox. Dado o problema, vamos a primeira solução: adicionar o virtualField no model User...
 
 {% codeblock lang:php %}
 <?php
@@ -96,7 +96,7 @@ public $virtualFields = array(
 );
 {% endcodeblock %}
 
-Pronto! Agora, é só fazer um *find* na action que o combobox será apresentado e tá finalizado, certo? Errado. Adicionamos uma complexidade a mais no model usuários, essa complexidade será adicionada em todos os finds que o model User aparecer. Não é isso que queremos, certo? Queremos apenas apresentar o nome do usuário concatenado ao nome da empresa em um combobox em uma action específica. Achei melhor criar um método específico que adicione o virtualField em tempo de execução no model User e me traga o que eu quero, uma lista de usuários, vamos ao método:
+Agora, é só fazer um *find* na action que o combobox será apresentado e tá finalizado, certo? Errado. Adicionamos uma complexidade a mais no model User, essa complexidade será adicionada em todos os finds que o model User aparecer. Não é isso que queremos, certo? Queremos apenas apresentar o nome do usuário concatenado ao nome da empresa em um combobox em uma action específica. Achei melhor criar um método específico que adicione o virtualField em tempo de execução no model User e me traga o que eu quero, uma lista de usuários, vamos ao método:
 
 {% codeblock lang:php %}
 <?php
@@ -112,11 +112,13 @@ public function findListUsersConcatWithCompanyName()
 									WHERE 
 										U.id = User.id";
 
-	return $this->find('list', array('fields' => array('User.id', 'User.user_comp')));
+	return $this->find('list', array(
+		'fields' => array('User.id', 'User.user_comp')
+	));
 }
 {% endcodeblock %}
 
-Pronto! Agora é removemos o virtualField anterior e apenas usamos esse método na action específica, ou quando quisermos.
+Pronto! Só precisamos remover o virtualField anterior e, agora, usamos esse método na action específica, ou quando quisermos.
 
 No fim, o model User se parece com isso:
 
@@ -158,9 +160,7 @@ class User extends AppModel
 											U.id = User.id";
 
 		return $this->find('list', array(
-			'fields' => array(
-				'User.id', 'User.user_comp'
-			)
+			'fields' => array('User.id', 'User.user_comp')
 		));
 	}
 }
