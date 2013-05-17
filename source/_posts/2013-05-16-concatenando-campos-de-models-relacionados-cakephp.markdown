@@ -5,7 +5,7 @@ date: 2013-05-16 23:40
 comments: true
 categories: [association, cakephp, models, belongsTo, virtualFields]
 ---
-{% img center /images/posts/cakephp-banner.jpg builds de um projeto %}
+{% img center /images/posts/cakephp-banner.jpg CakePHP %}
 <!-- more -->
 
 Olá! Hoje o post vai ser mais rápido. Vou mostrar uma solução para concatenar campos de Modelos associados em um [virtualField][1] no CakePHP. Essa dúvida surgiu na lista oficial do CakeTuga e eu resolvi tentar fazer. Após algumas buscas, encontrei uma [*thread*][2] onde o cara conseguiu fazer isso. Legal, vamos a minha implementação.
