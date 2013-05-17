@@ -102,7 +102,7 @@ Pronto! Agora, é só fazer um *find* na action que o combobox será apresentado
 <?php
 public function findListUsersConcatWithCompanyName()
 {
-	$this->virtualFields['teste'] = "SELECT 
+	$this->virtualFields['user_comp'] = "SELECT 
 										CONCAT(U.name, ' - ', C.name) 
 									FROM 
 										{$this->useTable} U
@@ -112,7 +112,7 @@ public function findListUsersConcatWithCompanyName()
 									WHERE 
 										U.id = User.id";
 
-	return $this->find('list', array('fields' => array('User.id', 'User.teste')));
+	return $this->find('list', array('fields' => array('User.id', 'User.user_comp')));
 }
 {% endcodeblock %}
 
@@ -147,7 +147,7 @@ class User extends AppModel
      */
 	public function findListUsersConcatWithCompanyName()
 	{
-		$this->virtualFields['teste'] = "SELECT 
+		$this->virtualFields['user_comp'] = "SELECT 
 											CONCAT(U.name, ' - ', C.name) 
 										FROM 
 											{$this->useTable} U
@@ -159,7 +159,7 @@ class User extends AppModel
 
 		return $this->find('list', array(
 			'fields' => array(
-				'User.id', 'User.teste'
+				'User.id', 'User.user_comp'
 			)
 		));
 	}
