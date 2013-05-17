@@ -157,7 +157,11 @@ class User extends AppModel
 										WHERE 
 											U.id = User.id";
 
-		return $this->find('list', array('fields' => array('User.id', 'User.teste')));
+		return $this->find('list', array(
+			'fields' => array(
+				'User.id', 'User.teste'
+			)
+		));
 	}
 }
 
