@@ -1,0 +1,6 @@
+.custom-banner a.nostyle, .custom-banner a.nostyle:hover {
+	text-decoration: none;
+	display: block;
+	margin-top: 10px;
+	white-space: normal;
+}
