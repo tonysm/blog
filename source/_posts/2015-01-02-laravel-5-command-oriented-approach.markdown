@@ -49,23 +49,26 @@ Then you should have a handler like this:
 
 use App\Commands\SubscribeUserCommand;
 use Illuminate\Contracts\Events\Dispatcher;
+use App\Payment\PaymentInterface;
 
 class SubscribeUserCommandHandler
 {
     private $userRepository;
     private $events;
+    private $payment;
 
-    public function __construct(UserRepository $userRepository, Dispatcher $events)
+    public function __construct(UserRepository $userRepository, Dispatcher $events, PaymentInterface $payment)
     {
         $this->userRepository = $userRepository;
         $this->events = $events;
+        $this->payment = $payment;
     }
 
     public function handle(SubscribeUserCommand $command)
     {
         $user = $this->userRepository->find($command->userId);
 
-        $user->subscribe($command->membershipType);
+        $user->subscribe($command->membershipType, $payment);
 
         $this->dispatchEvents($user->releaseEvents());
     }
@@ -151,12 +154,15 @@ As I said, it is also possible to handle events in background, let's see an exam
 use Illuminate\Database\Eloquent\Model;
 use App\Events\UserSubscribedEvent;
 use App\Subscriptions\MembershipType;
+use App\Payment\PaymentInterface;
 
 class User extends Model
 {
     // ...
-    public function subscribe(MembershipType $membershipType)
+    public function subscribe(MembershipType $membershipType, PaymentInterface $payment)
     {
+        $payment->purchaseSubscription($this, $membershipType);
+
         $this->subscription()->create($membershipType->toArray());
         
         $this->raise( new UserSubscribedEvent($this->id, $membershipType) );
@@ -232,7 +238,9 @@ class EventServiceProvider extends ServiceProvider {
      * @var array
      */
     protected $listen = [
-        'App\Events\UserSubscribedEvent' => ['App\Handlers\Events\UserSubscribedEventHandler']
+        \App\Events\UserSubscribedEvent::class => [ 
+            \App\Handlers\Events\UserSubscribedEventHandler::class
+        ]
     ];
 
 }
