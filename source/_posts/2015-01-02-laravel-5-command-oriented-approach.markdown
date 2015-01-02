@@ -13,7 +13,7 @@ A lot of shiny things around the Laravel world that I would like to talk, so I c
 ## Command-Oriented Architecture
 I'm not gonna explain in details this approach, but I'm going to give a brief introduction on the topic and link a few more content at the bottom.
 
-Basically, it we should describe our application into commands that should explicit intent. Let's say you have a subscription system on your app, you would have a "SubscribeUserCommand" class, or something similar, that maps to its own handler, in this case "SubscribeUserCommandHandler". Doing so you actually decouple your application from the transport layer (HTTP, cli, queue job, event handler, etc..). It means that you can *dispatch* this command from a
+Basically, we should describe our application into commands to make our intentions explicit. Let's say you have a subscription system on your app, you'd have a "SubscribeUserCommand" class, or something similar, that maps to its own handler, in this case "SubscribeUserCommandHandler". Doing so you actually decouple your application from the transport layer (HTTP, cli, queue job, event handler, etc..). It means that you can *dispatch* this command from a
 controller or a console command (cli) with no trouble.
 
 ## Laravel way
