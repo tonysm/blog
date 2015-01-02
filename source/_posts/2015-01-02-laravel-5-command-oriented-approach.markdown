@@ -181,7 +181,7 @@ Your event class is just a DTO and looks like this:
 use Illuminate\Queue\SerializesModels;
 use App\Subscriptions\MembershipType;
 
-class UserSibscribedEvent extends Event
+class UserSubscribedEvent extends Event
 {
     use SerializesModels;
         
@@ -293,6 +293,7 @@ This command bus looks pretty cool. I loved the ability to handle events in back
 
 ## Useful resources
 
+* [DevDiscussions - The Command Bus](https://www.youtube.com/watch?v=fbSYZFZCFS0)
 * [Laracast about the Laravel 5 Command bus](https://laracasts.com/lessons/laravel-5-commands)
 * [Laracast series about Commands and Domain Events](https://laracasts.com/series/commands-and-domain-events)
 * [Task-based UI](https://cqrs.wordpress.com/documents/task-based-ui/)
