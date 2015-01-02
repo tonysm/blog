@@ -289,7 +289,7 @@ Event::fire(new UserSubscribedEvent($userId, $membershipType));
 ```
 
 ## Conclusion
-This command bus looks pretty cool. Fun fact: you can have multiple event listeners which some of them executes synchronously and others execute asynchronously. I loved it, to make it work before we had to have an event listener that add a job to the queue and then handle the event on the job handler. Now it's pretty damn simple.
+This command bus looks pretty cool. Fun fact: you can have multiple event listeners/handlers where some of them executes synchronously and others execute asynchronously. I loved it, to make it work before we had to have an event listener that add a job to the queue and then handle the event on the job handler. Now it's pretty damn simple.
 
 ## Useful resources
 
