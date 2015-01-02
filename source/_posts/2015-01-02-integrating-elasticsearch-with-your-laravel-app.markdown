@@ -298,7 +298,49 @@ class ArticlesTableSeeder extends Seeder
 } 
 ```
 
-I'm using TestDummy here, so you better check the package to have an understanding of what is going on here.
+I'm using TestDummy here, so you better check the package to have an understanding of what is going on here. It is also easy to do a cli command to reindex your elasticsearch, like so:
+
+```php
+// file: app/Console/IndexArticlesToElasticsearchCommand.php
+<?php namespace App\Console;
+
+use App\Article;
+use Elasticsearch\Client;
+
+class IndexArticlesToElasticsearchCommand
+{
+    /**
+     * {@inheritdoc}
+     */
+    protected $name = "app:es-index";
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $description = "Indexes all articles to elasticsearch";
+
+    /**
+     * @return void
+     */
+    public function fire()
+    {
+        $models = Article::all();
+        $es = new Client;
+
+        foreach ($models as $model)
+        {
+            $es->index([
+                'index' => 'acme',
+                'type' => 'articles',
+                'id' => $model->id,
+                'body' => $model->toArray()
+            ]);
+        }
+    }
+}
+```
+
+After registering your command, you can run <code>php artisan app:es-index</code> to index existing articles to Elasticsearch.
 
 ## Useful Resources
 
