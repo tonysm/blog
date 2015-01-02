@@ -48,12 +48,37 @@ Then you should have a handler like this:
 <?php namespace App\Handlers\Commands;
 
 use App\Commands\SubscribeUserCommand;
+use Illuminate\Contracts\Events\Dispatcher;
 
 class SubscribeUserCommandHandler
 {
+    private $userRepository;
+    private $events;
+
+    public function __construct(UserRepository $userRepository, Dispatcher $events)
+    {
+        $this->userRepository = $userRepository;
+        $this->events = $events;
+    }
+
     public function handle(SubscribeUserCommand $command)
     {
-        // magic goes here
+        $user = $this->userRepository->find($command->userId);
+
+        $user->subscribe($command->membershipType);
+
+        $this->dispatchEvents($user->releaseEvents());
+    }
+
+
+    /**
+     * @param array $events
+     * @return void
+     */
+    private function dispatchEvents(array $events)
+    {
+        foreach ($events as $event)
+            $this->events->fire($event);
     }
 }
 ```
@@ -130,14 +155,13 @@ use App\Subscriptions\MembershipType;
 class User extends Model
 {
     // ...
-    public static function subscribe($userId, MembershipType $membershipType)
+    public function subscribe(MembershipType $membershipType)
     {
-        $user = static::find($userId);
-        $user->subscription()->create($membershipType->toArray());
+        $this->subscription()->create($membershipType->toArray());
         
-        $user->raise( new UserSubscribedEvent($userId, $membershipType) );
+        $this->raise( new UserSubscribedEvent($this->id, $membershipType) );
 
-        return $user;
+        return $this;
     }
     // ...
 }
