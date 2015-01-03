@@ -68,7 +68,7 @@ class SubscribeUserCommandHandler
     {
         $user = $this->userRepository->find($command->userId);
 
-        $user->subscribe($command->membershipType, $payment);
+        $user->subscribe($command->membershipType, $this->payment);
 
         $this->dispatchEvents($user->releaseEvents());
     }
@@ -289,6 +289,9 @@ Event::fire(new UserSubscribedEvent($userId, $membershipType));
 ```
 
 ## Conclusion
+
+That is it. To sum up, I like to think that Commands can change state, while Events just react to these state changes and if an Event handler has to change anything it MUST do it through Commands.
+
 This command bus looks pretty cool. Fun fact: you can have multiple event listeners/handlers where some of them executes synchronously and others execute asynchronously. I loved it, to make it work before we had to have an event listener that add a job to the queue and then handle the event on the job handler. Now it's pretty damn simple.
 
 ## Useful resources
