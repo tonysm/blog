@@ -7,7 +7,7 @@ categories:
 ---
 
 Searching is an important part of many applications, and it is most of the time treated as a simple task. "Just query using LIKE and you're good to go". Well, while the LIKE clause can be handy sometimes we have to do it in a better way. After researching for a while I found a few good resources on the subject. The most attractive one is Elasticsearch. Yes, you can go far with full-text search and other searching techniques, however Elasticsearch is very handy and comes with a variety of
-useful functionalities. I'm going to cover the basics here a link more resources at the bottom, so you can dig further.
+useful functionalities. I'm going to cover the basics here and link more resources at the bottom, so you can dig further.
 
 <!-- more -->
 
@@ -21,7 +21,7 @@ In other words: you can use Elasticsearch for logging (see the [ELK stack](http:
 
 ## Basics about Elasticsearch (with a SQL comparison)
 
-So, in SQL we have a database with tables, which is like the structure of the data, and rows, which are the data itself (basically the values for the table structure). Translating this knowledge to Elasticsearch we have: indexes (like the database itself or schemas in some DBSM) and inside the indexes, we have types (like a database table) and we also have documents (like the database rows), which is the data itself.
+So, in SQL we have a database with tables, which is like the structure of the data, and rows, which are the data itself (basically the values for the table structure). Translating this knowledge to Elasticsearch we have: indexes (like the database itself or schemas in some DBMS) and inside the indexes, we have types (like a database table) and we also have documents (like the database rows), which is the data itself.
 
 Elasticsearch is schema free. However, it is not schema-less, 'cause in order to have better query results, we have to use schemas to make the searches relevant.
 
@@ -29,7 +29,7 @@ Elasticsearch is schema free. However, it is not schema-less, 'cause in order to
 
 Well, the concepts shown here I took from a Laracon Talk linked at the bottom. It is using Laravel, but the concepts apply to any language/framework because Elasticsearch works as a RESTful API, it means that you consume it using HTTP requests. Don't worry, Elasticsearch is pretty fast and easily scalable.
 
-First thing to know is that you have to have DATA to use elasticsearch, so in my example I have a seed command that populates the database and, while it does that, it indexes all of the data on Elasticsearch. I show it in a while, first let's see how we can integrate it with our Eloquent usage.
+First thing to know is that you have to have DATA to use elasticsearch, so in my example I have a seed command that populates the database and, while it does that, it indexes all of the data on Elasticsearch. I'll show it in a while, first let's see how we can integrate it with our Eloquent usage.
 
 The way I'll show you is by using [Model Observers](http://laravel.com/docs/4.2/eloquent#model-observers), so you have a refular Eloquent Model, let's say <code>Article</code>. Then you have a Observer like so:
 
@@ -283,7 +283,7 @@ Now, everywhere you depend on ArticlesRepository interface, you will actually ha
 
 ## Conclusion
 
-The post is getting to long, so maybe I will do another one about quering and filtering latter on Elasticsearch latter. Worth saying that every example class here is easily testable, just mock the Elasticsearch\Client and you are good to go. To finish up, here is the seeder, so after setting up as above, just run the <code>php artisan db:seed</code> command to populate your database and elasticsearch:
+The post is getting too long, so maybe I will do another one about quering and filtering on Elasticsearch. Worth saying that every example class here is easily testable, just mock the Elasticsearch\Client and you are good to go. To finish up, here is the seeder, so after setting up as above, just run the <code>php artisan db:seed</code> command to populate your database and elasticsearch:
 
 ```php
 // file: database/seeds/ArticlesTableSeeder.php
