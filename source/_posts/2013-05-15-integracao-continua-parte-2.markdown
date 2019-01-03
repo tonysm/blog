@@ -1,17 +1,16 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Integração Contínua - parte 2"
-date: 2013-05-15 20:24
-comments: true
+date: 2013-05-15
+cover_image: /images/posts/phpci-all-builds-dashboard-banner.jpg
 categories: [introducao, introdução, integração contínua, ci, software, development, team, iniciante]
 ---
-{% img center /images/posts/phpci-all-builds-dashboard-banner.jpg builds de um projeto %}
-<!-- more -->
 Olá! Olha aqui mais uma vez. Bom, antes de começar a falar aqui, preciso esclarecer algumas coisas. Primeiro, essa não é uma série de posts sequenciais, embora o título "parte1, parte2,..." possa sugerir isso. É apenas uma série sobre integração contínua. Na [parte 1][1] vimos uma introdução básica sobre integração contínua. Agora, vamos aplicar em um pequeno projeto meu para testes, o [MyTwitter - Laravel][2].
 
 Nesse projeto, tenho alguns testes automatizados já configurados e rodando localmente, como podemos ver aqui:
 
-{% img center /images/posts/testes-locais-mytwitter-laravel4.jpg Testes automatizados locais %}
+![Testes automatizados locais](/assets/images/posts/testes-locais-mytwitter-laravel4.jpg)
 
 Esse projeto já está integrado com o [Travis-CI][3], que é um serviço de integração contínua para projetos *open source*. Porém, vou aproveitar esse post para testar uma ferramenta nova, o [PHPCI][4], que parece ser bem interessante. Se quiser saber mais sobre [o que ele faz][5], [quais os requisitos][6], etc.. basta acessar o [repositório deles][7] no GitHub.
 
@@ -32,20 +31,20 @@ Depois disso, siga adiante:
 * crie um VirtualHost apontando para o diretório clonado, lembre de permitir a reescrita de configurações: <code>AllowOverride All</code>
 * crie um arquivo .htaccess no diretório clonado com o seguinte conteúdo
 
-{% codeblock lang:bash %}
+```bash
 <IfModule rewrite.c>
     RewriteEngide On
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
-{% endcodeblock %}
+```
 
 Na documentação, eles dizem para criar um cronjob para sempre executar os builds, mas vamos fazer isso manualmente.
 
 Após essas configurações do PHPCI, você consegue acessar a página no browser, essa deve ser a home:
 
-{% img center /images/posts/phpci-home.jpg Home do PHPCI %}
+![Home do PHPCI](/assets/images/posts/phpci-home.jpg)
 
 ## Criando um projeto
 
@@ -53,7 +52,7 @@ Após isso, selecionamos a opção "add project" no menu superior. Ele pede algu
 
 Após adicionar o repositório, você é redirecionado para a tela do projeto no PHPCI. Antes de fazer o build, precisamos criar o arquivo de configuração do *build*, o *_config.yml* com o seguinte conteúdo:
 
-{% codeblock lang:yml %}
+```yml
 build_settings:
     ignore:
         - "vendor"
@@ -70,7 +69,7 @@ test:
         standard: "PSR0"
     php_cpd:
         allow_failures: true
-{% endcodeblock %}
+```
 
 Após adicionar o arquivo ao repositório, estamos prontos para fazer o primeiro build.
 
@@ -78,26 +77,26 @@ Após adicionar o arquivo ao repositório, estamos prontos para fazer o primeiro
 
 Para tal, o botão "build now" vai nos ajudar nessa primeira vez. Ao clicar nele, somos direcionados para a tela de visualização do build. Como você deve ter percebido, nada acontece. Isso ocorre porque não ativamos aquela *cron* que eles falam. Por isso, precisamos rodar as builds manualmente, assim:
 
-{% codeblock lang:bash %}
+```bash
 /path/to/phpci/console phpci:run-builds
-{% endcodeblock %}
+```
 
 No melhor dos mundos, esse build deveria funcionar! Porém, meu projeto não está tão bom assim, visto que o build falhou, como podemos ver:
 
-{% img center /images/posts/phpci-primeiro-build-falho.jpg PHPCI primeiro build falhou %}
+![PHPCI primeiro build falhou](/assets/images/posts/phpci-primeiro-build-falho.jpg)
 
 Após alguns ajustes no meu código, podemos ver o build funcionando:
 
-{% img center /images/posts/phpci-last-build-success.jpg Build funcionando! %}
+![Build funcionando!](/assets/images/posts/phpci-last-build-success.jpg)
 
 Como vocês devem ter percebido, tive alguns problemas com o PHPCS, pois o phpci executava essa linha de comando:
 
-{% codeblock lang:bash %}
+```bash
 RUNNING PLUGIN: php_code_sniffer
     Executing: /var/www/phpci/vendor/bin/phpcs --standard=PSR0 --ignore=vendor/*,tests/*,app/config/*,app/database/* /var/www/phpci/build/project1-build5/
         ERROR: the "PSR0" coding standard is not installed. The installed coding standards are Zend, Squiz, PHPCS, PSR2, PEAR, PSR1 and MySource
 PLUGIN STATUS: FAILED
-{% endcodeblock %}
+```
 
 Só consegui fazer esse comando rodar dizendo para executar no diretório <code>./app/</code>, não no root.. e não consegui fazer isso usando o PHPCI, caso alguém consiga, compartilha ai.
 
@@ -107,7 +106,7 @@ Após uma longa batalha para passar no QA, a build finalmente funcionou! Nesse e
 
 Meu dashboard até o build funcionar:
 
-{% img center /images/posts/phpci-all-builds-dashboard.jpg Dashboard do projeto! %}
+![Dashboard do projeto!](/assets/images/posts/phpci-all-builds-dashboard.jpg)
 
 Bom, acho que é isso, galera.
 

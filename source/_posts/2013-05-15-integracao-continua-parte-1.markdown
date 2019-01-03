@@ -1,14 +1,12 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Integração Contínua - parte 1"
-date: 2013-05-15 20:16
-comments: true
+date: 2013-05-15
+cover_image: /assets/images/posts/tempos-modernos.jpg
 categories: [introducao, introdução, integração contínua, ci, software, development, team, iniciante]
 ---
-{% img center /images/posts/tempos-modernos.jpg Tempos Modernos %}
-<!-- more -->
-
-Olá, senhores. Hoje vou falar de Integração Contínua! Tenho tentado estudar esse assunto, gostaria de ter um pouco mais de tempo pra isso, mas vamos que vamos!
+Olá, senhoras e senhores. Hoje vou falar de Integração Contínua! Tenho tentado estudar esse assunto, gostaria de ter um pouco mais de tempo pra isso, mas vamos que vamos!
 
 Bom, segundo [Martin Fowler][1]:
 

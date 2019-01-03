@@ -1,25 +1,21 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Desenvolvendo uma API - parte 1"
-date: 2014-03-06 08:26
-comments: true
+date: 2014-03-06
+cover_image: /assets/images/posts/api-cloud-tumb.png
 categories: ["API", "development", "desenvolvimento"]
 ---
-{% img center /images/posts/api-cloud-tumb.png %}
-
-<!-- more -->
 
 Saber desenvolver uma API é muito importante nos dias de hoje. Com o avanço das tecnologias (see Internet of Things) temos cada vez mais a necessidade de fazer softwares que possam se comunicar tanto com o browser (front-end), com mobile clients (Android, iOS, Windows, BlackBerry, etc, etc...), quanto com nossas geladeiras. Partindo dessa necessidade de termos uma aplicação sendo utilizada por várias tecnologias diferentes que surgem as populares API's.
 
 Uma API nada mais é do que, citando a Wikipédia:
 
-{% blockquote Wikipédia http://pt.wikipedia.org/wiki/API Wikipédia %}
-No contexto de desenvolvimento web, uma API é um conjunto definido de mensagens de requisição e resposta HTTP, geralmente expressado nos formatos XML ou JSON. Ainda que o termo seja um sinônimo para web service, a chamada Web 2.0 está aos poucos depreciando o modelo de serviços SOAP para a técnica REST.
-{% endblockquote %}
+> No contexto de desenvolvimento web, uma API é um conjunto definido de mensagens de requisição e resposta HTTP, geralmente expressado nos formatos XML ou JSON. Ainda que o termo seja um sinônimo para web service, a chamada Web 2.0 está aos poucos depreciando o modelo de serviços SOAP para a técnica REST. - [Wikipédia](http://pt.wikipedia.org/wiki/API)
 
 Essa imagem descreve melhor essa explicação:
 
-{% img center /images/posts/api-cloud.png API cloud %}
+![API cloud](/assets/images/posts/api-cloud.png)
 
 ## Tópicos
 

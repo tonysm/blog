@@ -1,8 +1,8 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Command-Oriented Architecture"
-date: 2014-09-23 11:43
-comments: true
+date: 2014-09-23
 categories: [architecture, php, commands, domain, events]
 ---
 
@@ -12,21 +12,17 @@ Bom, aqui vai um link: [Commands e Domain Events](http://php-pb.net/2014/06/23/c
 
 Resumindo um pouco o que eu falo no post, esse padrão de arquitetura está em alta nos ultimos tempos:
 
-<!-- more -->
-
 Basicamente temos:
 
-<ol>
-    <li>Fronteiras usam Commands (DTO) para usar nosso app</li>
-    <li>Commands são executados por um e somente 1 Handlers</li>
-    <li>Handlers podem usar Services e/ou Repositories para interagir com os Domain Objects</li>
-    <li>Domain Objects geram Domain Events (podendo ser 1 ou mais)</li>
-    <li>Handlers disparam os Domain Events dos Domain Objects afetados na ação</li>
-    <li>Domain Events podem ser ouvidos por 1 ou vários Event Listeners</li>
-    <li>Listeners podem executar Commands (volte ao item 2)</li>
-    <li>Handlers devolvem o que está em seus contratos para as Fronteiras</li>
-    <li>Fim do request</li>
-</ol>
+* Fronteiras usam Commands (DTO) para usar nosso app
+* Commands são executados por um e somente 1 Handlers
+* Handlers podem usar Services e/ou Repositories para interagir com os Domain Objects
+* Domain Objects geram Domain Events (podendo ser 1 ou mais)
+* Handlers disparam os Domain Events dos Domain Objects afetados na ação
+* Domain Events podem ser ouvidos por 1 ou vários Event Listeners
+* Listeners podem executar Commands (volte ao item 2)
+* Handlers devolvem o que está em seus contratos para as Fronteiras
+* Fim do request
 
 ## Otimização utilizando Queues
 

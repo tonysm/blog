@@ -1,14 +1,12 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Laravel 5 Command-Oriented Approach"
-date: 2015-01-02 11:59
-comments: true
-categories: 
+date: 2015-01-02
+categories: [laravel, command-bus]
 ---
 
 A lot of shiny things around the Laravel world that I would like to talk, so I chose the new CommandBus that Laravel 5 brings by default. To start I'd like to say that it's pretty damn cool.
-
-<!-- more -->
 
 ## Command-Oriented Architecture
 I'm not gonna explain in details this approach, but I'm going to give a brief introduction on the topic and link a few more content at the bottom.
@@ -23,8 +21,10 @@ We used to implement this approach using some packages (see [laracasts/commander
 A typical command looks like this:
 
 ```php
-// file: app/Commands/SubscribeUserCommand.php
-<?php namespace App\Commands;
+// app/Commands/SubscribeUserCommand.php
+<?php 
+
+namespace App\Commands;
 
 use App\Subscriptions\MembershipType;
 
@@ -44,8 +44,10 @@ class SubscribeUserCommand extends Command
 Then you should have a handler like this:
 
 ```php
-// file: app/Handlers/Commands/SubscribeUserCommandHandler.php
-<?php namespace App\Handlers\Commands;
+// app/Handlers/Commands/SubscribeUserCommandHandler.php
+<?php 
+
+namespace App\Handlers\Commands;
 
 use App\Commands\SubscribeUserCommand;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -89,8 +91,10 @@ class SubscribeUserCommandHandler
 Which you can dispatch, let's say, from your controller like so:
 
 ```php
-// file: app/Http/Controllers/SubscriptionsController.php
-<?php namespace App\Http\Controllers;
+// app/Http/Controllers/SubscriptionsController.php
+<?php 
+
+namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Guard;
 use App\Commands\SubscribeUserCommand;
@@ -123,8 +127,10 @@ class SubscriptionControllers extends Controller
 The *dispatch* method is inherited from the Controller class (which uses the <code>Illuminate\Foundation\Bus\DispatchesCommands</code>) and it maps commands to handlers. Cool stuff. This example works synchronously. If you need to handle the command in background (queue jobs) you just have to implement the <code>Illuminate\Contracts\Queue\ShouldBeQueued</code> interface on your command, like so:
 
 ```php
-// file: app/Commands/SubscribeUserCommand.php
-<?php namespace App\Commands;
+// app/Commands/SubscribeUserCommand.php
+<?php 
+
+namespace App\Commands;
 
 use App\Subscriptions\MembershipType;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
@@ -148,8 +154,10 @@ That is it! Well, actually you have to setup the queue config on <code>config/qu
 As I said, it is also possible to handle events in background, let's see an example. Let's assume your User you have a *subscribe* named constructor on your model that builds the user instance and saves it (Eloquent/ActiveRecord). Your model should look like:
 
 ```php
-// folder: app/User.php
-<?php namespace App;
+// app/User.php
+<?php 
+
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Events\UserSubscribedEvent;
@@ -175,8 +183,10 @@ class User extends Model
 
 Your event class is just a DTO and looks like this:
 ```php
-// file: app/Events/UserSubscribedEvent.php
-<?php namespace App\Events;
+// app/Events/UserSubscribedEvent.php
+<?php 
+
+namespace App\Events;
 
 use Illuminate\Queue\SerializesModels;
 use App\Subscriptions\MembershipType;
@@ -199,8 +209,10 @@ class UserSubscribedEvent extends Event
 Then you have a handler like so:
 
 ```php
-// file: app/Handlers/Events/UserSubscribedEventHandler;
-<?php namespace App\Handlers\Events;
+// app/Handlers/Events/UserSubscribedEventHandler;
+<?php 
+
+namespace App\Handlers\Events;
 
 use App\Events\UserSubscribedEvent;
 use App\Mailers\UserMailer;
@@ -226,7 +238,9 @@ class UserSubscribedEventHandler
 To register your handler just go to <code>app/Providers/EventServiceProvider.php</code> and add your listener to the <code>$listen</code> property, like so:
 
 ```php
-<?php namespace App\Providers;
+<?php 
+
+namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -252,8 +266,10 @@ This action is executed synchronously, it means that your user is waiting for th
 To handle the event in background you just have to implement the same <code>Illuminate\Contracts\Queue\ShouldBeQueued</code> interface on your event handler class, like so:
 
 ```php
-// file: app/Handlers/Events/UserSubscribedEventHandler;
-<?php namespace App\Handlers\Events;
+// app/Handlers/Events/UserSubscribedEventHandler;
+<?php 
+
+namespace App\Handlers\Events;
 
 use App\Events\UserSubscribedEvent;
 use App\Mailers\UserMailer;

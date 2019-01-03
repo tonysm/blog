@@ -1,20 +1,14 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Desenvolvendo uma API - Parte 2"
-date: 2014-03-07 16:58
-comments: true
+date: 2014-03-07
+cover_image: /assets/images/posts/api-cloud-tumb.png
 categories: [PHP, API, development, REST]
 ---
-
-{% img center /images/posts/api-cloud-tumb.png %}
-
-<!-- more -->
-
 Atualmente o modelo de API's mais utilizado é o REST. Não conhece? Explicarei um pouco aqui do funcionamento desse modelo. A teoria é bem simples, na verdade, mas muitas vezes subestimada.
 
-Para começo de conversa, vou linkar aqui um video que abriu a minha cabeça para o que é REST de verdade. O video se chama "Teach a dog to REST" e é incrível! Esse video caiu como uma luva para mim, pois eu tinha acabado de fazer uma API num antigo trabalho e não tinha o menor conhecimento sobre REST, acabei cometendo vários erros como as URLs mostradas no vídeo. Sem mais delongas, vamos ao video.
-
-<center>{% vimeo 17785736 %}</center>
+Para começo de conversa, vou linkar aqui um video que abriu a minha cabeça para o que é REST de verdade. O video se chama "Teach a dog to REST" e é incrível! Esse video caiu como uma luva para mim, pois eu tinha acabado de fazer uma API num antigo trabalho e não tinha o menor conhecimento sobre REST, acabei cometendo vários erros como as URLs mostradas no vídeo. Sem mais delongas, assistam ao [video](https://vimeo.com/17785736).
 
 Construir uma API é um processo que parece simples no começo, mas, acreditem, é complexo pra caramba! REST é o conceito básico das API hoje em dia, existem outros modelos como o SOAP, mas não vou entrar em detalhes, até porque nunca os usei na prática.
 

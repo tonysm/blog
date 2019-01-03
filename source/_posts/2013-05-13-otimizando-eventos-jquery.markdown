@@ -1,20 +1,18 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Otimizando eventos - jQuery"
-date: 2013-05-13 11:10
-comments: true
+date: 2013-05-13
+cover_image: /assets/images/posts/jquery-events-dom.jpg
 categories: [iniciantes, jQuery, DOM, eventos, events]
 ---
-{% img center /images/posts/jquery-events-dom.jpg Eventos com jQuery %}
-<!-- more -->
-
 Bom, esse post vai ser dedicado a eventos em jQuery. Esses dias surgiram algumas dúvidas sobre a manipulação de eventos no jQuery, por isso, resolvi falar um pouco sobre isso.
 
 Bom, uma coisa simples de fazer em JS é adicionar *event listeners* no DOM. Contudo, por ser algo trivial de ser feito, muita gente acaba fazendo de qualquer jeito. É o velho princípio do "funciona?! Então, não mexe".
 
 Vejamos o exemplo abaixo:
 
-{% codeblock exemplo 1 lang:html %}
+```html
 <body>
 	<ul>
 		<li>Lorem 1</li>
@@ -33,27 +31,27 @@ Vejamos o exemplo abaixo:
 	})(jQuery, document);
 	</script>
 </body>
-{% endcodeblock %}
+```
 
 Esse é um exemplo bem básico, ele adiciona um *event listener* no evento *click* nas LI's. Até ai, blz. Mas esse código pode ser melhorado. Para isso, vamos seguir algumas dicas do site [desenvolvimentoparaweb](http://desenvolvimentoparaweb.com/jquery/otimizar-codigos-jquery-aumentar-performance-front-end/).
 
 Primeiro, podemos otimizar os seletores, assim:
 
-{% codeblock lang:js %}
+```js
 var lista = $('ul li');
-{% endcodeblock %}
+```
 
 Ficando assim:
 
-{% codeblock lang:js %}
+```js
 var lista = $("ul").find('li');
-{% endcodeblock %}
+```
 
 Legal! Primeiro passo rumo à otimização foi dado!
 
 Agora, digamos que o seja necessário adicionar LI's dinamicamente na lista. Para fazer isso, vamos alterar o código da página, ficando assim:
 
-{% codeblock lang:html %}
+```html
 <body>
 	<ul>
 		<li>Lorem 1</li>
@@ -79,7 +77,7 @@ Agora, digamos que o seja necessário adicionar LI's dinamicamente na lista. Par
 	})(jQuery, document);
 	</script>
 </body>
-{% endcodeblock %}
+```
 
 Ótimo! Agora está concluído, correto? Não! Ao testar, percebemos que o *event listener* que atrelamos às LI's não se aplica as novas LI's. WTF? Em versões anteriores do jQuery alguns simplesmente utilizariam o método *live()*, o que não é tão legal assim, mas resolveria o nosso problema, pois ele adicionaria o *event listener* nas LI's existentes e em LI's que fossem adicionadas ao DOM futuramente.
 
@@ -89,7 +87,7 @@ E se nós, ao invés de atrelarmos o evento nas LI's, fizéssemos isso na UL? "Q
 
 Com o código abaixo, matamos dois coelhos com uma só cajadada:
 
-{% codeblock lang:html %}
+```html
 <body>
 	<ul>
 		<li>Lorem 1</li>
@@ -114,7 +112,7 @@ Com o código abaixo, matamos dois coelhos com uma só cajadada:
 	})(jQuery, document);
 	</script>
 </body>
-{% endcodeblock %}
+```
 
 ## Conclusão
 

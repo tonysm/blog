@@ -1,12 +1,11 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Concatenando campos de Models Relacionados - CakePHP"
-date: 2013-05-16 23:40
-comments: true
+date: 2013-05-16
+cover_image: /assets/images/posts/cakephp-banner.jpg
 categories: [association, cakephp, models, belongsTo, virtualFields]
 ---
-{% img center /images/posts/cakephp-banner.jpg CakePHP %}
-<!-- more -->
 
 Olá! Hoje o post vai ser mais rápido. Vou mostrar uma solução para concatenar campos de Modelos associados em um [virtualField][1] no CakePHP. Essa dúvida surgiu na lista oficial do CakeTuga e eu resolvi tentar fazer. Após algumas buscas, encontrei uma [*thread*][2] onde o cara conseguiu fazer isso. Legal, vamos a minha implementação.
 
@@ -14,7 +13,8 @@ Olá! Hoje o post vai ser mais rápido. Vou mostrar uma solução para concatena
 
 Primeiro, vamos definir nossa base de dados com duas tabelas: *users* e *companies*, com a seguinte estrutura:
 
-{% codeblock lang:sql %}
+```sql
+
 CREATE TABLE IF NOT EXISTS `companies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
@@ -35,11 +35,11 @@ INSERT INTO `companies` (`id`, `name`) VALUES
 INSERT INTO `users` (`id`, `name`, `company_id`) VALUES
 (1, 'user 1', 2),
 (2, 'user 2', 1);
-{% endcodeblock %}
+```
 
 Agora, vamos definir os nosso modelos, começando pelo Model Company:
 
-{% codeblock lang:php %}
+```php
 <?php
 App::uses('AppModel', 'Model');
 
@@ -57,11 +57,11 @@ class Company extends AppModel
 	);
 
 }
-{% endcodeblock %}
+```
 
 Vamos ser mais diretos, sem códigos desnecessários para o exemplo. O importante aqui é definir os relacionamentos. Agora, vamos para o model User:
 
-{% codeblock lang:php %}
+```php
 <?php
 App::uses('AppModel', 'Model');
 
@@ -76,12 +76,11 @@ class User extends AppModel
 		)
 	);
 }
-
-{% endcodeblock %}
+```
 
 Perfeito! Temos os models e seus relacionamentos bem definidos! Agora, digamos que você queira apresentar os nomes dos usuários da aplicação concatenados com o nome da empresa a qual ele pertence em um combobox. Dado o problema, vamos a primeira solução: adicionar o virtualField no model User...
 
-{% codeblock lang:php %}
+```php
 <?php
 public $virtualFields = array(
 	"user_comp" => "SELECT 
@@ -94,11 +93,11 @@ public $virtualFields = array(
 					WHERE 
 					U.id = User.id"
 );
-{% endcodeblock %}
+```
 
 Agora, é só fazer um *find* na action que o combobox será apresentado e tá finalizado, certo? Errado. Adicionamos uma complexidade a mais no model User, essa complexidade será adicionada em todos os finds que o model User aparecer. Não é isso que queremos, certo? Queremos apenas apresentar o nome do usuário concatenado ao nome da empresa em um combobox em uma action específica. Achei melhor criar um método específico que adicione o virtualField em tempo de execução no model User e me traga o que eu quero, uma lista de usuários, vamos ao método:
 
-{% codeblock lang:php %}
+```php
 <?php
 public function findListUsersConcatWithCompanyName()
 {
@@ -116,13 +115,13 @@ public function findListUsersConcatWithCompanyName()
 		'fields' => array('User.id', 'User.user_comp')
 	));
 }
-{% endcodeblock %}
+```
 
 Pronto! Só precisamos remover o virtualField anterior e, agora, usamos esse método na action específica, ou quando quisermos.
 
 No fim, o model User se parece com isso:
 
-{% codeblock lang:php %}
+```php
 <?php
 App::uses('AppModel', 'Model');
 
@@ -164,20 +163,19 @@ class User extends AppModel
 		));
 	}
 }
-
-{% endcodeblock %}
+```
 
 No código final, ainda podemos mudar a vontade o nome das tabelas dos models que o método ainda funciona, pois ele está usando o atributo useTable dos models em questão.
 
 O resultado do método apresentado acima é esse:
 
-{% codeblock lang:html %}
+```html
 Array
 (
     [1] => user 1 - company 2
     [2] => user 2 - company 1
 )
-{% endcodeblock %}
+```
 
 ## Conclusão
 

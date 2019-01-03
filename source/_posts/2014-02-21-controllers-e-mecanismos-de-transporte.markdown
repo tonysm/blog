@@ -1,14 +1,11 @@
 ---
-layout: post
+extends: _layouts.post
+section: content
 title: "Controllers e Mecanismos de transporte"
-date: 2014-02-21 11:45
-comments: true
+date: 2014-02-21
+cover_image: /assets/images/posts/transport-doctor-who.jpg
 categories: [PHP, Controller, Architecture, Arquitetura, Camadas, Layers, Transport, transporte]
 ---
-
-{% img center /images/posts/transport-doctor-who.jpg Transport Doctor Who %}
-
-<!-- more -->
 
 O trabalho de um Controller é pegar informações HTTP e passar para a aplicação (como um mecanismo de transporte), o que faz todo sentido, já que não queremos ter Controllers sabendo demais. Mas, acontece que não é tão simples organizar o código, é uma tarefa bastante complicada, na verdade. Comecei a usar o ___Repository Pattern___, mas acabei acomplando meus Controllers a vários repositórios, o que acaba sendo custoso, visto que para cada request, vários repositórios são carregados..
 
@@ -34,7 +31,7 @@ Enquanto não gravo o vídeo, resolvi compartilhar um pouco de código aqui pra 
 
 Dado o seguinte caso de uso: Passar uma task para outro usuário em um sistema de gerenciamento de tarefas. Precisamos atualizar a task e notificar o novo usuário que o mesmo tem uma nova task. Normalmente, teriamos um controller assim:
 
-{% codeblock lang:php %}
+```php
 <?php
 
 use Acme\Repositories\TaskRepository;
@@ -63,8 +60,11 @@ class TasksController extends Controller
      * @param UserRepository $users
      * @param UserMailer $mailer
      */
-    public function __construct(TaskRepository $tasks, UserRepository $users, UserMailer $mailer)
-    {
+    public function __construct(
+        TaskRepository $tasks, 
+        UserRepository $users, 
+        UserMailer $mailer
+    ) {
         $this->tasks = $tasks;
         $this->users = $users;
         $this->mailer = $mailer;
@@ -82,8 +82,7 @@ class TasksController extends Controller
 
         $task->setUser($userTo);
 
-        if ( ! $this->tasks->save($task))
-        {
+        if (! $this->tasks->save($task)) {
             return Redirect::to('tasks')->withErrors($this->tasks->getErrors());
         }
 
@@ -91,11 +90,12 @@ class TasksController extends Controller
 
         return Redirect::to('tasks')->with(['message' => Lang::get('tasks.transfer.success']);
     }
-{% endcodeblock %}
+}
+```
 
 O código até que tá limpo, mas ainda dá pra melhorar.. Nosso Controller, que faz está fora da camada da nossa aplicação (faz parte do front-end, por assim dizer), sabe que temos repositórios, mailers, etc, etc.. Idealmente, nosso Controller deve saber apenas QUEM realiza suas tarefas e os possíveis erros. Uma forma muito mais limpa para tal modelo é utilizando Interactors, como mostrado abaixo:
 
-{% codeblock lang:php %}
+```php
 <?php namespace Acme\Interactors\Tasks;
 
 use Acme\Repositories\TaskRepository;
@@ -125,8 +125,11 @@ class TransferenceInteractor
      * @param UserRepository $users
      * @param UserMailer $mailer
      */
-    public function __construct(TaskRepository $tasks, UserRepository $users, UserMailer $mailer)
-    {
+    public function __construct(
+        TaskRepository $tasks,
+        UserRepository $users,
+        UserMailer $mailer
+    ) {
         $this->tasks = $tasks;
         $this->users = $users;
         $this->mailer = $mailer;
@@ -145,18 +148,18 @@ class TransferenceInteractor
 
         $task->setUser($userTo);
 
-        if ( ! $this->tasks->save($task))
-        {
+        if (! $this->tasks->save($task)) {
             throw new CannotTransferTaskException($this->tasks->getErros());
         }
 
         $this->mailer->notifyTaskTransference($task, $userTo);
     }
-{% endcodeblock %}
+}
+```
 
 Com isso, nosso interactor seria responsável por fazer a transferência da task e disparar exceptions em caso de erros. Nosso Controller ficaria muito mais limpo, assim:
 
-{% codeblock lang:php %}
+```php
 <?php
 
 use Acme\Interactors\Tasks\TransferenceInteractor;
@@ -193,12 +196,11 @@ class TasksController extends Controller
         }
     }
 }
-
-{% endcodeblock %}
+```
 
 Pronto! Agora, nosso controller não sabe mais como fazemos as transferências das tasks. Apenas sabem QUEM faz e os possíveis erros retornados. Assim. Esse approach é muito mais elegante e limpo. Assim como muito mais fácil de testar e adicionar features e error handlers. Digamos que você tenha um watcher analisando as tasks em background para balancear as tasks com os desenvolvedores mais "folgados". Seria feito um cli-command para isso, assim:
 
-{% codeblock lang:php %}
+```php
 <?php
 
 use Symfony\Component\Console\Input\InputArgument;
@@ -274,7 +276,7 @@ class TaskTransferenceCommand extends Command
     }
 
 }
-{% endcodeblock %}
+```
 
 O exemplo do command não foi dos melhores, mas espero que dê pra entender onde quero chegar com isso.
 
