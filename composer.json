@@ -1,0 +1,13 @@
+{
+    "name": "tonysm/blog",
+    "description": "Personal blog",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tony Messias",
+            "email": "tonyzrp@gmail.com"
+        }
+    ],
+    "require": {}
+}
