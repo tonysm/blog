@@ -14,9 +14,26 @@
         alt="About image"
         class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-6 md:ml-10">
 
-    <p class="mb-6">This is where you can give a little more information about yourself or site. If you'd like to change the structure of this page, you can find the file at <code>source/about.blade.php</code></p>
+    <p class="mb-6">Hi, I'm Tony Messias. I work as a Software Engineer for <a href="https://madewithlove.be/">madewithlove</a>. I have been building web applications since late 2010, so it's been a while.</p>
 
-    <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum officia dolorem accusantium veniam quae, possimus, temporibus explicabo magni voluptas. fugit natus deserunt atque veniam possimus earum harum itaque est!</p>
+    <p class="mb-6">This is my personal page, so expect articles about experiments or thoughts on Web Development, Linux, or just Programming in general.</p>
 
-    <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum officia dolorem accusantium veniam quae, possimus, temporibus explicabo magni voluptas. fugit natus deserunt atque veniam!</p>
+    <p class="mb-6">You can find me as <a href="https://twitter.com/tony0x01">@tony0x01</a> on Twitter and I also have a
+        <a href="https://www.youtube.com/channel/UCGtfJjAR5JeBPAmxN_ZHx4Q?view_as=subscriber">YouTube channel</a> where I occasionally share a technical video of some experiment or talk.</p>
+
+    <p class="mb-6">I'm a co-founder and one of the organizers of <a href="https://www.meetup.com/pt-BR/maceio-dev-meetup/">Maceio DEV Meetup</a>, where we monthly join to discuss a varied of topics related to software development (from sales, to development practices/techniques, to infrastructure). If you are in town (Maceió/AL, Brazil), reach out.</p>
+
+    <p class="mb-6">Some of the topics I'm interested:</p>
+
+    <ul>
+        <li>PHP/Laravel</li>
+        <li>Elixir/Phoenix</li>
+        <li>React/VueJS</li>
+        <li>Docker/Kubernetes</li>
+        <li>Ubuntu</li>
+        <li>Golang</li>
+        <li>Ruby/Rails</li>
+    </ul>
+
+    <p class="mb-6">Ideas are my own.</p>
 @endsection

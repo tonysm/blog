@@ -12,10 +12,10 @@ return [
         'posts' => [
             'author' => 'Tony Messias', // Default author, if not provided in a post
             'sort' => '-date',
-            'path' => 'blog/{filename}',
+            'path' => 'articles/{filename}',
         ],
         'categories' => [
-            'path' => '/blog/categories/{filename}',
+            'path' => '/articles/categories/{filename}',
             'posts' => function ($page, $allPosts) {
                 return $allPosts->filter(function ($post) use ($page) {
                     return $post->categories ? in_array($page->getFilename(), $post->categories, true) : false;
