@@ -3,14 +3,14 @@
         <li class="pl-4">
             <a
                 title="{{ $page->siteName }} Articles"
-                href="/blog"
+                href="{{ $page->baseUrl }}/blog"
                 class="nav-menu__item hover:text-blue {{ $page->isActive('/blog') ? 'active text-blue' : '' }}"
             >Articles</a>
         </li>
         <li class="pl-4">
             <a
                 title="{{ $page->siteName }} About"
-                href="/about"
+                href="{{ $page->baseUrl }}/about"
                 class="nav-menu__item hover:text-blue {{ $page->isActive('/about') ? 'active text-blue' : '' }}"
             >About</a>
         </li>

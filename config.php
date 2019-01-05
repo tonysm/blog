@@ -12,7 +12,7 @@ return [
         'posts' => [
             'author' => 'Tony Messias', // Default author, if not provided in a post
             'sort' => '-date',
-            'path' => 'blog/{filename}',
+            'path' => '/blog/{filename}',
         ],
         'categories' => [
             'path' => '/blog/categories/{filename}',

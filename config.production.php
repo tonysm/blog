@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'baseUrl' => 'https://tonysm.github.io',
+    'baseUrl' => 'https://tonysm.github.io/blog',
     'production' => true,
 ];
