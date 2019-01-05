@@ -28,3 +28,7 @@ new Vue({
     },
 }).$mount('#vue-search');
 
+const host = "tonysm.github.io";
+
+if ((host == window.location.host) && (window.location.protocol == "http:"))
+  window.location.protocol = "https:";
