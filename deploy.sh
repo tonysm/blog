@@ -14,4 +14,5 @@ git remote add blog git@github.com:tonysm/tonysm.github.io.git
 git push --force homepage master
 git push --force blog master:gh-pages
 
+rm -rf ./.git/
 cd ../
