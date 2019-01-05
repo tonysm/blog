@@ -3,8 +3,8 @@
         <li class="pl-4">
             <a
                 title="{{ $page->siteName }} Articles"
-                href="/articles"
-                class="nav-menu__item hover:text-blue {{ $page->isActive('/articles') ? 'active text-blue' : '' }}"
+                href="/blog"
+                class="nav-menu__item hover:text-blue {{ $page->isActive('/blog') ? 'active text-blue' : '' }}"
             >Articles</a>
         </li>
         <li class="pl-4">
