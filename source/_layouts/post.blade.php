@@ -6,7 +6,7 @@
     <meta property="og:url" content="{{ $page->getUrl() }}"/>
     <meta property="og:description" content="{{ $page->description }}" />
     @if ($page->cover_image)
-        <meta property="og:image" content="{{ $page->cover_image }}" />
+        <meta property="og:image" content="{{ $page->baseUrl }}{{ $page->cover_image }}" />
     @endif
 @endpush
 
