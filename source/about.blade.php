@@ -16,7 +16,7 @@
 
     <p class="mb-6">Hi, I'm Tony Messias. I work as a Software Engineer for <a href="https://madewithlove.be/">madewithlove</a>. I have been building web applications since late 2010, so it's been a while.</p>
 
-    <p class="mb-6">This is my personal page, so expect articles about experiments or thoughts on Web Development, Linux, or just Programming in general.</p>
+    <p class="mb-6">This is my personal page, expect articles about experiments or thoughts on Web Development, Linux, or just Programming in general.</p>
 
     <p class="mb-6">You can find me as <a href="https://twitter.com/tony0x01">@tony0x01</a> on Twitter and I also have a
         <a href="https://www.youtube.com/channel/UCGtfJjAR5JeBPAmxN_ZHx4Q?view_as=subscriber">YouTube channel</a> where I occasionally share a technical video of some experiment or talk.</p>
