@@ -3,7 +3,7 @@ extends: _layouts.post
 section: content
 title: Queues and Async Apps
 date: 2019-01-18
-description: Goals for 2019
+description: Queues and Async Apps
 featured: true
 categories: [laravel,queues,websockets]
 ---
@@ -14,6 +14,6 @@ In this talk I walk-through a problem of a server provisioning application, wher
     
 Here it is:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aNwrEHFOXdM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mhmkap7jdu8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Hope you like it.
