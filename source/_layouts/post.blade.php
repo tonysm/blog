@@ -1,4 +1,4 @@
-@extends('_layouts.master')
+@extends('_layouts.post-master')
 
 @push('meta')
     <meta property="og:title" content="{{ $page->title }}" />
@@ -14,7 +14,7 @@
 
     <h1 class="leading-none mb-2">{{ $page->title }}</h1>
 
-    <p class="text-grey-darker text-xl md:mt-0">{{ $page->author }}  •  {{ $page->getDate()->format('F j, Y') }}</p>
+    <p class="text-grey-darker text-xl md:mt-0">{{ $page->getDate()->format('F j, Y') }}</p>
 
     @if ($page->categories)
         @foreach ($page->categories as $i => $category)

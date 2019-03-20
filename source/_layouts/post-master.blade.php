@@ -27,17 +27,17 @@
     </head>
 
     <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans border-t-8 border-blue">
-        <header class="w-full container max-w-xl mx-auto pt-8 pb-0 px-4">
-            <h1 class="m-0 p-0">
+        <header class="w-full text-center container max-w-xl mx-auto pt-8 pb-0 px-4">
+            <h4 class="m-0 p-0">
                 <a href="/" class="text-black no-underline">Tony Messias</a>
-            </h1>
+            </h4>
 
-            <div class="w-1/6 mt-6 border border-b border-blue-lighter"></div>
+            <div class="w-1/6 mx-auto mt-4 border border-b border-blue-lighter"></div>
         </header>
 
         @include('_nav.menu-responsive')
 
-        <main role="main" class="flex-auto w-full container max-w-xl mx-auto py-6 px-6">
+        <main role="main" class="flex-auto w-full container max-w-xl mx-auto py-4 px-6">
             @yield('body')
         </main>
 

@@ -1,56 +1,26 @@
 @extends('_layouts.master')
 
 @push('meta')
-    <meta property="og:title" content="{{ $page->siteName }}" />
+    <meta property="og:title" content="About {{ $page->siteName }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ $page->getUrl() }}"/>
-    <meta property="og:description" content="{{ $page->blogDescription }}" />
+    <meta property="og:description" content="A little bit about {{ $page->siteName }}" />
 @endpush
 
 @section('body')
-    @foreach ($posts->where('featured', true) as $featuredPost)
-        <div class="w-full mb-6">
-            @if ($featuredPost->cover_image)
-                <img src="{{ $featuredPost->cover_image }}" alt="{{ $featuredPost->title }} cover image" class="mb-6">
-            @endif
+    <img src="/assets/img/about.png"
+         alt="About image"
+         class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-6 md:ml-10">
 
-            <p class="text-grey-darker font-medium my-2">
-                {{ $featuredPost->getDate()->format('F j, Y') }}
-            </p>
+    <p class="mb-6">
+        Hi, I'm Tony Messias. I've working writing web applications since 2010. I work remotely for <a href="https://madewithlove.be/">madewithlove</a>] as a Software Engineer.
+    </p>
 
-            <h2 class="text-3xl mt-0">
-                <a href="{{ $featuredPost->getUrl() }}" title="Read {{ $featuredPost->title }}" class="text-black font-extrabold">
-                    {{ $featuredPost->title }}
-                </a>
-            </h2>
+    <p class="mb-6">
+        Every now and then I try to share things about what I'm learning through my <a href="{{ '/articles' }}">articles</a> and <a href="https://www.youtube.com/channel/UCGtfJjAR5JeBPAmxN_ZHx4Q?view_as=subscriber">screencasts</a>. You can also find me on Twitter at <a href="https://twitter.com/tony0x01">@tony0x01</a>.
+    </p>
 
-            <p class="mt-0 mb-4">{!! $featuredPost->excerpt() !!}</p>
-
-            <a href="{{ $featuredPost->getUrl() }}" title="Read - {{ $featuredPost->title }}"class="uppercase tracking-wide mb-4">
-                Read
-            </a>
-        </div>
-
-        @if (! $loop->last)
-            <hr class="border-b my-6">
-        @endif
-    @endforeach
-
-    @foreach ($posts->where('featured', false)->take(6)->chunk(2) as $row)
-        <div class="flex flex-col md:flex-row md:-mx-6">
-            @foreach ($row as $post)
-                <div class="w-full md:w-1/2 md:mx-6">
-                    @include('_components.post-preview-inline')
-                </div>
-
-                @if (! $loop->last)
-                    <hr class="block md:hidden w-full border-b mt-2 mb-6">
-                @endif
-            @endforeach
-        </div>
-
-        @if (! $loop->last)
-            <hr class="w-full border-b mt-2 mb-6">
-        @endif
-    @endforeach
-@stop
+    <p class="mb-6">
+        I'm a co-founder and one of the organizers of a Meetup group called <a href="https://www.meetup.com/pt-BR/maceio-dev-meetup/">Maceio DEV Meetup</a>, where we try to group monthly to discuss many different topics, from servers to selling software. If you're in town (Maceió/AL), reach out.
+    </p>
+@endsection
