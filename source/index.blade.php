@@ -13,7 +13,7 @@
          class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-6 md:ml-10">
 
     <p class="mb-6">
-        Hi, I'm Tony Messias. I've working writing web applications since 2010. I work remotely for <a href="https://madewithlove.be/">madewithlove</a>] as a Software Engineer.
+        Hi, I'm Tony Messias. I've working writing web applications since 2010. I work remotely for <a href="https://madewithlove.be/">madewithlove</a> as a Software Engineer.
     </p>
 
     <p class="mb-6">
