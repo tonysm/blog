@@ -27,7 +27,7 @@
     </head>
 
     <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans border-t-8 border-blue">
-        <header class="w-full container max-w-xl mx-auto pt-8 pb-0 px-4">
+        <header class="w-full container max-w-xl mx-auto pt-8 pb-0 px-6">
             <h1 class="m-0 p-0">
                 <a href="/" class="text-black no-underline">Tony Messias</a>
             </h1>
