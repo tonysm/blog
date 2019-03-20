@@ -4,7 +4,6 @@ section: content
 title: Queues and Async Apps
 date: 2019-01-18
 description: Queues and Async Apps
-featured: true
 categories: [laravel,queues,websockets]
 ---
 
