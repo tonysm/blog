@@ -8,7 +8,7 @@
 @endpush
 
 @section('body')
-    <img src="/assets/img/about.png"
+    <img src="/assets/img/about.jpg"
          alt="About image"
          class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-6 md:ml-10">
 
