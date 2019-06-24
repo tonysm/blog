@@ -53,6 +53,7 @@ export default {
     PostCard
   },
   metaInfo: {
+    title: 'Home'
   }
 }
 </script>
