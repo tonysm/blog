@@ -1,6 +1,0 @@
-/* TEAM */
-
-	Developer: Luiz Antonio S Messias
-	Twitter: @tony0x01
-	Site: https://tonysm.github.io
-	From: Maceió, Alagoas, Brazil

@@ -1,11 +1,10 @@
 #!/bin/bash
 
-rm -rf build_production
+rm -rf dist/
 
-npm run production
-./vendor/bin/jigsaw build production
+yarn build
 
-cd build_production
+cd dist/
 
 git init
 git add .
