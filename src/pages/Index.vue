@@ -53,7 +53,6 @@ export default {
     PostCard
   },
   metaInfo: {
-    title: 'Hello, world!'
   }
 }
 </script>
