@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="lang">
+  <head>
+    <title data-vue-tag="true">Controllers e Mecanismos de transporte - Tony Messias</title><meta data-vue-tag="true" charset="utf-8"/><meta data-vue-tag="true" name="generator" content="Gridsome v0.5.4"/><meta data-vue-tag="true" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><meta data-vue-tag="true" data-key="description" name="description" content="Personal blog about Software Engineering and Programming."/><meta data-vue-tag="true" data-key="format-detection" name="format-detection" content="telephone=no"/><meta data-vue-tag="true" name="description" content="Controllers e Mecanismos de transporte"/><link data-vue-tag="true" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.9bb7ffa.png"/><link data-vue-tag="true" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.9bb7ffa.png"/><link data-vue-tag="true" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.9bb7ffa.png"/><link data-vue-tag="true" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.9bb7ffa.png"/><link data-vue-tag="true" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.9bb7ffa.png"/><link data-vue-tag="true" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.9bb7ffa.png"/><link data-vue-tag="true" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.9bb7ffa.png"/><link data-vue-tag="true" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.9bb7ffa.png"/><noscript data-vue-tag="true" ><style>.g-image--loading{display:none;}</style></noscript><link rel="preload" href="/assets/css/styles.a78cf7ad.css" as="style"><link rel="preload" href="/assets/js/app.548f02cd.js" as="script"><link rel="preload" href="/assets/css/3.styles.3f1a7a3c.css" as="style"><link rel="preload" href="/assets/js/component--post.ffd855bb.js" as="script"><link rel="prefetch" href="/assets/js/component--404.6d16f789.js"><link rel="prefetch" href="/assets/js/component--home.d3a15305.js"><link rel="prefetch" href="/assets/js/component--tag.5caee10c.js"><link rel="prefetch" href="/assets/js/page-query.32f9b40d.js"><link rel="stylesheet" href="/assets/css/styles.a78cf7ad.css"><link rel="stylesheet" href="/assets/css/3.styles.3f1a7a3c.css">
+  </head>
+  <body data-vue-tag="">
+    <script>
+      // Add dark / light detection that runs before Vue.js load. Borrowed from overreacted.io
+      (function() {
+        window.__onThemeChange = function() {};
+        function setTheme(newTheme) {
+          window.__theme = newTheme;
+          preferredTheme = newTheme;
+          document.body.setAttribute('data-theme', newTheme);
+          window.__onThemeChange(newTheme);
+        }
+
+        var preferredTheme;
+        try {
+          preferredTheme = localStorage.getItem('theme');
+        } catch (err) { }
+
+        window.__setPreferredTheme = function(newTheme) {
+          setTheme(newTheme);
+          try {
+            localStorage.setItem('theme', newTheme);
+          } catch (err) {}
+        }
+
+        var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        darkQuery.addListener(function(e) {
+          window.__setPreferredTheme(e.matches ? 'dark' : 'light')
+        });
+
+        setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+      })();
+    </script>
+
+    <div id="app" data-server-rendered="true"><header class="header"><div class="header__left"><a href="/" class="logo active"><span class="logo__text">
+    ← Tony Messias
+  </span></a></div><div class="header__right"><button role="button" aria-label="Toggle dark/light" class="toggle-theme"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button></div></header><main class="main"><div class="post-title"><h1 class="post-title__text">
+      Controllers e Mecanismos de transporte
+    </h1><div class="post-meta">
+   Posted 21. February 2014.
+   <strong>6 min read.</strong></div></div><div class="post content-box"><div class="post__header"><img alt="Cover image" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 860 252' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-70'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='10'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-70)' width='860' height='252' xlink:href='data:image/jpeg%3bbase64%2c/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAATAEADASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcFBgIDBAj/xAAsEAABAwMDAwMCBwAAAAAAAAABAgMRAAQFBhIhMUFRBxNhFYEiIzIzgpGx/8QAGAEAAwEBAAAAAAAAAAAAAAAABAUGAQP/xAAhEQACAQMEAwEAAAAAAAAAAAABAgADBBESITFRMjNBwf/aAAwDAQACEQMRAD8Ap%2bm8y0t7bdWfvPLP7vSftTOsMSxeY8qbt1jcOW1Hj5FLDTxNpeMMXFuhZmQ4DEieoNejNH32DRaOM3L7YcCvxTBj4muScypaq1NNR3idGmbmHWmkFKm1qABMbvI/qqnqLAHH3ACE7ilEp8U6dVZW3buFLsC2ditq5E9e9KLWmonLYvkEFBEGEjmf8pxbcZnGuQUJxNvp1jsm9hcllLB9pp2xUrhYJWVBBUAB07HnzW/U2RdymHuF32aDt0pht1CPbALhJO5MyeRAP37Vl6P6htzaZlkpSgFaF7V87pBSaqGQvXXkoZJlFuFNIhIEJkmCe9ObCkrh9Rkvf0VARwO4s8kHHLhSlq71zNbtxHipjKte2pRKP1GQai0JWNyx07ipx1wxmjiNLD3DvvFQWQQpIBFTuFu7g3El5ZKneZPWiigklSx3EsGQWouvqkyptUnzHSlfrRRlaZMUUU3t/EzLn1mcfpw6v6jeJ3HaWQY/lWWTuHWlvBtZSAtUcfNFFFWrsoYg/P0SeuRmkue5F3H5loSvkioN7iI4oooCpBxP/9k=' /%3e%3c/svg%3e" width="860" data-src="/assets/static/transport-doctor-who.07cc2b7.0b6d77d.jpg" data-srcset="/assets/static/transport-doctor-who.a67b0b2.0b6d77d.jpg 480w, /assets/static/transport-doctor-who.07cc2b7.0b6d77d.jpg 860w" data-sizes="(max-width: 860px) 100vw, 860px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/transport-doctor-who.07cc2b7.0b6d77d.jpg" class="g-image g-image--loaded" width="860"></noscript></div><div class="post__content"><p>O trabalho de um Controller é pegar informações HTTP e passar para a aplicação (como um mecanismo de transporte), o que faz todo sentido, já que não queremos ter Controllers sabendo demais. Mas, acontece que não é tão simples organizar o código, é uma tarefa bastante complicada, na verdade. Comecei a usar o <strong><em>Repository Pattern</em></strong>, mas acabei acomplando meus Controllers a vários repositórios, o que acaba sendo custoso, visto que para cada request, vários repositórios são carregados..</p>
+<p>Mas não acho que seja papel do Controller interagir diretamente com models ou Repositórios, então, isso sempre me incomodou. Até que, assistindo a um vídeo do <a href="http://cleancoders.com" target="_blank" rel="nofollow noopener noreferrer">Uncle Bob</a> em que ele mensiona os Interactors, pensei "É isso! Faz todo sentido!".</p>
+<p>Quem nunca se pegou pensando "como faço para utilizar o método desse controller em outro lugar?". A resposta é: "Você não deve utilizar seus controllers em outros lugares!".</p>
+<p>Para quem não viu, aqui vai um resumo.</p>
+<h2 id="interactors"><a href="#interactors" aria-hidden="true"><span class="icon icon-link"></span></a>Interactors</h2>
+<p>Com os Interactors, o papel do seu controller é basicamente capturar qualquer informação do protocolo utilizado (HTTP) como, por exemplo, qual o usuário autenticado no sistema, qual o id do <em>resource</em> que foi passado e entregar essas informações como argumentos para os <em>interactors</em>, assim como tratar as <em>exceções</em> disparadas pelos mesmos e converter essas informações para a resposta do <em>client</em> (HTML, JSON ou, quem sabe, (uhh!) XML)... ou melhor, passar essa responsabilidade de conversão das respostas para outra camada de <em>parsers</em>.</p>
+<p>O mais legal disso é que a sua aplicação fica desacoplada do mecanismo de transporte. Isso é, para fazer essa mesma funcionalidade via <strong>cli</strong> (terminal), por exemplo, bastaria chamar o Interactor e supri-lo com os mesmos parâmetros que são passados pelo controller (tratar as exceptions também) e voilà! Temos um <em>cli command</em> que faz o mesmo que o controller, só que usando protocolos diferentes.</p>
+<h2 id="o-que-o-seu-interactor-deve-saber"><a href="#o-que-o-seu-interactor-deve-saber" aria-hidden="true"><span class="icon icon-link"></span></a>O que o seu Interactor deve saber</h2>
+<p>Qualquer coisa que não seja relacionada com funções de outras camadas da sua aplicação. Isso é, não devemos persistir dados diretamente do Interactor, por exemplo. Entretanto, podemos utilizar os repositórios da aplicação diretamente nele. Dessa forma, poderiamos ter um <em>Interactor</em> por <em>Use Case</em>, como é sugerido pelo próprio Uncle Bob. Ou seja, um Controller teria conhecimento dos Interactors (ou Use Cases) que ele é responsável. Fez todo sentido para mim quando ouvi falar disso. Mas ainda estou aprendendo a colocar em prática esse padrão. Farei um video de teste desse padrão e atualizarei o <em>post</em> colocando o link aqui.</p>
+<h2 id="updated-show-me-the-code"><a href="#updated-show-me-the-code" aria-hidden="true"><span class="icon icon-link"></span></a>Updated: Show me the code!</h2>
+<p>Enquanto não gravo o vídeo, resolvi compartilhar um pouco de código aqui pra exemplificar melhor. Vamos lá!</p>
+<p>Dado o seguinte caso de uso: Passar uma task para outro usuário em um sistema de gerenciamento de tarefas. Precisamos atualizar a task e notificar o novo usuário que o mesmo tem uma nova task. Normalmente, teriamos um controller assim:</p>
+<pre class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Repositories<span class="token punctuation">\</span>TaskRepository</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Repositories<span class="token punctuation">\</span>UserRepository</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Mailers<span class="token punctuation">\</span>UserMailer</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TasksController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * @var Acme\Repositories\TaskRepository
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$tasks</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @var Acme\Repositories\UserRepository
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$users</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @var Acme\Mailers\UserMailer
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$mailer</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @param TaskRepository $tasks
+     * @param UserRepository $users
+     * @param UserMailer $mailer
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>
+        TaskRepository <span class="token variable">$tasks</span><span class="token punctuation">,</span> 
+        UserRepository <span class="token variable">$users</span><span class="token punctuation">,</span> 
+        UserMailer <span class="token variable">$mailer</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasks</span> <span class="token operator">=</span> <span class="token variable">$tasks</span><span class="token punctuation">;</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">users</span> <span class="token operator">=</span> <span class="token variable">$users</span><span class="token punctuation">;</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">mailer</span> <span class="token operator">=</span> <span class="token variable">$mailer</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @param string|int $task_id
+     * @param string|int $user_id
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">transfer</span><span class="token punctuation">(</span><span class="token variable">$task_id</span><span class="token punctuation">,</span> <span class="token variable">$user_id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$userTo</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">users</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">find</span><span class="token punctuation">(</span><span class="token variable">$user_id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$task</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasks</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">find</span><span class="token punctuation">(</span><span class="token variable">$task_id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$task</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">setUser</span><span class="token punctuation">(</span><span class="token variable">$userTo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasks</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">save</span><span class="token punctuation">(</span><span class="token variable">$task</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">to</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'tasks'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">withErrors</span><span class="token punctuation">(</span><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasks</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getErrors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">mailer</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">notifyTaskTransference</span><span class="token punctuation">(</span><span class="token variable">$task</span><span class="token punctuation">,</span> <span class="token variable">$userTo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">to</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'tasks'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">with</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'message'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token scope">Lang<span class="token punctuation">::</span></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'tasks.transfer.success'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></pre>
+<p>O código até que tá limpo, mas ainda dá pra melhorar.. Nosso Controller, que faz está fora da camada da nossa aplicação (faz parte do front-end, por assim dizer), sabe que temos repositórios, mailers, etc, etc.. Idealmente, nosso Controller deve saber apenas QUEM realiza suas tarefas e os possíveis erros. Uma forma muito mais limpa para tal modelo é utilizando Interactors, como mostrado abaixo:</p>
+<pre class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">Acme<span class="token punctuation">\</span>Interactors<span class="token punctuation">\</span>Tasks</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Repositories<span class="token punctuation">\</span>TaskRepository</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Repositories<span class="token punctuation">\</span>UserRepository</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Mailers<span class="token punctuation">\</span>UserMailer</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Interactors<span class="token punctuation">\</span>Exceptions<span class="token punctuation">\</span>CannotTransferTaskException</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TransferenceInteractor</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * @var Acme\Repositories\TaskRepository
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$tasks</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @var Acme\Repositories\UserRepository
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$users</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @var Acme\Mailers\UserMailer
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$mailer</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @param TaskRepository $tasks
+     * @param UserRepository $users
+     * @param UserMailer $mailer
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>
+        TaskRepository <span class="token variable">$tasks</span><span class="token punctuation">,</span>
+        UserRepository <span class="token variable">$users</span><span class="token punctuation">,</span>
+        UserMailer <span class="token variable">$mailer</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasks</span> <span class="token operator">=</span> <span class="token variable">$tasks</span><span class="token punctuation">;</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">users</span> <span class="token operator">=</span> <span class="token variable">$users</span><span class="token punctuation">;</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">mailer</span> <span class="token operator">=</span> <span class="token variable">$mailer</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @param string|int $task_id
+     * @param string|int $user_id
+     * @return void
+     * @throws CannotTransferTaskException
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">transfer</span><span class="token punctuation">(</span><span class="token variable">$task_id</span><span class="token punctuation">,</span> <span class="token variable">$user_id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$userTo</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">users</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">find</span><span class="token punctuation">(</span><span class="token variable">$user_id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$task</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasks</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">find</span><span class="token punctuation">(</span><span class="token variable">$task_id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$task</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">setUser</span><span class="token punctuation">(</span><span class="token variable">$userTo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasks</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">save</span><span class="token punctuation">(</span><span class="token variable">$task</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">CannotTransferTaskException</span><span class="token punctuation">(</span><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasks</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getErros</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">mailer</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">notifyTaskTransference</span><span class="token punctuation">(</span><span class="token variable">$task</span><span class="token punctuation">,</span> <span class="token variable">$userTo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></pre>
+<p>Com isso, nosso interactor seria responsável por fazer a transferência da task e disparar exceptions em caso de erros. Nosso Controller ficaria muito mais limpo, assim:</p>
+<pre class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Interactors<span class="token punctuation">\</span>Tasks<span class="token punctuation">\</span>TransferenceInteractor</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Interactors<span class="token punctuation">\</span>Exceptions<span class="token punctuation">\</span>CannotTransferTaskException</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TasksController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * @var Acme\Interactors\Tasks\TransferenceInteractor
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$tasksDelivery</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @param TransferenceInteractor $tasksDelivery
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>TransceferenceInteractor <span class="token variable">$tasksDelivery</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasksDelivery</span> <span class="token operator">=</span> <span class="token variable">$tasksDelivery</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @param string|int $task_id
+     * @param string|int $user_id
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">transfer</span><span class="token punctuation">(</span><span class="token variable">$task_id</span><span class="token punctuation">,</span> <span class="token variable">$user_id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasksDelivery</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">transfer</span><span class="token punctuation">(</span><span class="token variable">$task_id</span><span class="token punctuation">,</span> <span class="token variable">$user_id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">to</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'tasks'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">with</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'message'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token scope">Lang<span class="token punctuation">::</span></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'tasks.transfer.success'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>CannotTransferTaskException <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">to</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'tasks'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">withErrors</span><span class="token punctuation">(</span><span class="token variable">$e</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getErrorMessages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></pre>
+<p>Pronto! Agora, nosso controller não sabe mais como fazemos as transferências das tasks. Apenas sabem QUEM faz e os possíveis erros retornados. Assim. Esse approach é muito mais elegante e limpo. Assim como muito mais fácil de testar e adicionar features e error handlers. Digamos que você tenha um watcher analisando as tasks em background para balancear as tasks com os desenvolvedores mais "folgados". Seria feito um cli-command para isso, assim:</p>
+<pre class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">use</span> <span class="token package">Symfony<span class="token punctuation">\</span>Component<span class="token punctuation">\</span>Console<span class="token punctuation">\</span>Input<span class="token punctuation">\</span>InputArgument</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Interactors<span class="token punctuation">\</span>Tasks<span class="token punctuation">\</span>TransferenceInteractor</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Acme<span class="token punctuation">\</span>Interactors<span class="token punctuation">\</span>Exceptions<span class="token punctuation">\</span>CannotTransferTaskException</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TaskTransferenceCommand</span> <span class="token keyword">extends</span> <span class="token class-name">Command</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * @var Acme\Interactors\Tasks\TransferenceInteractor
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$tasksDelivery</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @var string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"acme:transfer-task"</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @var string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$description</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"Transfers a task to a given user"</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @param TransferenceInteractor $tasksDelivery
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>TransceferenceInteractor <span class="token variable">$tasksDelivery</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token scope"><span class="token keyword">parent</span><span class="token punctuation">::</span></span><span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">tasksDelivery</span> <span class="token operator">=</span> <span class="token variable">$tasksDelivery</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * handles the command
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">fire</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token variable">$task_id</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">argument</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'task_id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable">$user_id</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">argument</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'user_id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">taskDelivery</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">transfer</span><span class="token punctuation">(</span><span class="token variable">$task_id</span><span class="token punctuation">,</span> <span class="token variable">$user_id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">info</span><span class="token punctuation">(</span><span class="token scope">Lang<span class="token punctuation">::</span></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'tasks.transfer.success'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>CannotTransferTaskException <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$e</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getErrorMessages</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$message</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">error</span><span class="token punctuation">(</span><span class="token variable">$message</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getArguments</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">[</span><span class="token single-quoted-string string">'task_id'</span><span class="token punctuation">,</span> <span class="token scope">InputArgument<span class="token punctuation">::</span></span><span class="token constant">REQUIRED</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'The ID of the task to be transfered'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token single-quoted-string string">'user_id'</span><span class="token punctuation">,</span> <span class="token scope">InputArgument<span class="token punctuation">::</span></span><span class="token constant">REQUIRED</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'The id of the user to transfer the task to'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getOptions</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></span></pre>
+<p>O exemplo do command não foi dos melhores, mas espero que dê pra entender onde quero chegar com isso.</p>
+<p>É isso! O que vocês acham desse padrão? Como vocês organizam suas aplicações? Deixem um comentário ai e até a próxima!</p>
+</div><div class="post__footer"><div class="post-tags"><a href="/tag/php" class="post-tags__link"><span>#</span> PHP
+		</a><a href="/tag/controller" class="post-tags__link"><span>#</span> Controller
+		</a><a href="/tag/arquitetura" class="post-tags__link"><span>#</span> Arquitetura
+		</a><a href="/tag/camadas" class="post-tags__link"><span>#</span> Camadas
+		</a><a href="/tag/layers" class="post-tags__link"><span>#</span> Layers
+		</a><a href="/tag/transport" class="post-tags__link"><span>#</span> Transport
+		</a><a href="/tag/transporte" class="post-tags__link"><span>#</span> transporte
+		</a></div></div></div><div class="post-comments"></div><div class="author post-author"><img alt="Author image" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-73'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='5'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-73)' width='180' height='180' xlink:href='data:image/jpeg%3bbase64%2c/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAHAAAAgEFAQAAAAAAAAAAAAAABgcAAQIDBQgE/8QANBAAAQMDAgMHAQYHAAAAAAAAAQIDBAAFEQYSByExEyJBUWFxkRUIFDJCgaEWI1KxweHx/8QAGQEAAwEBAQAAAAAAAAAAAAAAAAEDAgQF/8QAHREAAgMAAwEBAAAAAAAAAAAAAAECAxEEEiExQf/aAAwDAQACEQMRAD8A6kqmatKqoVUAee6XOFaoipVyktRmE9VuKwP90qrvx2s0VahDhOyEbiELUvbvA/NtAJA8s86XH2iNVPXTVrljY7sS3kJVg/jcIBJ/TOPmtPw%2b4ejUEVUy5PqajJVtS03gLV6k%2bApSaitZSuDk8SG1YePNolrUm6QXYgz3S0vtOXqMCmvY7vDvltan213tYzmQFEEHIOCCK51vnB%2bImG47Zp0huQBlKHiFJPpkYIog%2bzlcLkm5XSzyi8I0ZkLKFK3IC9%2bMjyzzpRkn8NTqcV6h81Kpmq1oiYCedWk1DVtAHOfELQ82RxFvl0aQ0phbrTjba1YKypCckeHXz8aIrG6q3adTISysPLBKkkeXIDAos4kW51MqHc20KXGyGZIHPsyDltzB5YBO0%2b4PhSntOsF2rUUy1XgZSmUQ2sdEhXMfpULFJ6j0KJVqKYUac1PdZd3RBuNvT92WkntexW2QfDqT%2b%2bKKeEMNlU/UV2RAVDckPoZ2kk5CQTkZA6kgnGedBN61RPmXgxLDZpkwRllt0oTtSpX9W7qQOfpR5wl1H9c%2boIVGVGW2oEtlQV05ZyOuT0Pp6Uq97D5HV1vGMcGq5qgqV0HnGI1Yail4FD2qdWWjTMbtbtLShah3GEd5xfsn/JwKYjdy0IXFeS6ApsoUFA9CMHNcs8UdPyPqbd1tzDjiXGgXtvmB1%2bKMYfFj%2bINSri3B/wCk2laSIwCsBas4/nL9ug5Cj1i3NS4vZpIcaI5KQcgj3FTnqkdFSTg/RMM8SbeiwJYjRFxp7bQQydgWhKvPz5%2bXrTw4TRVKsjl4kw1RZVxKCULb2ENoTtT3fAE7lY9RQtdLNo3SiF3G5xoLT%2bMpSUAuKI8EI8/WgrS/Fu72h1aXGxMtpcPZx5CyVtJJJADnX5zRCC/EF1rxKTOmxUoJ0txJ0/f9raJBhyjy7GThOT5BXQ0aBWehzW8OdPRKcVeJcy1TpNosOxt1kBL0o95SVHqlI6DHmaRMyW/NnrekOqedKVKWtZJJPmSa9V3kOLujj7yytTqsuE/myeZ%2beda2LlSnj4kL%2bAcf3P7VXMI9m/SbAtGMAgDpWSM9IipxGkyY6ScbWnlJHwDW8f08tqw2udHeD4mqLZSE4KHAfw%2btb%2b46TstuZdXKk3hSYi0tyHWY6FNpWQDtzn1qUroLCsapsAFHe7vcKnHD1WtRUo/qayjm04getGzOnbMH21CJe321R1SgVraaBaHVQ656jl1q%2b8aet0O1Pvx4k1D6QklLsttSmgo8t6Bz5ikuRFtJDdEktYFBwtqkuA7ShsLHucU6%2bC%2bsJLVwRabjIW5EkJSWAtWeyUcYGfI5xj2pLz2cNnHVyOpPvj/lbzSa98rkshRbPeB5glR2/ASKu1vhDc9P/9k=' /%3e%3c/svg%3e" width="180" data-src="/assets/static/author.e6b6009.2e099e8.jpg" data-srcset="/assets/static/author.e6b6009.2e099e8.jpg 180w" data-sizes="(max-width: 180px) 100vw, 180px" class="author__image g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/author.e6b6009.2e099e8.jpg" class="author__image g-image g-image--loaded" width="180"></noscript><!----><p class="author__intro">
+            My name is <a href="//twitter.com/tony0x01">Tony Messias</a>. I'm a <a href="//madewithlove.be" title="I work here. Looking for a job? Check us out.">Software Engineer</a>. This is my personal blog where I share thoughts and experiments on programming.
+		</p><p class="author__links"><a href="//github.com/tonysm" title="This is my GitHub - where I share experimental repositories. You can check it out.">GitHub</a><a href="//www.meetup.com/pt-BR/maceio-dev-meetup/" title="I co-organize a meetup in my Maceió/AL (Brazil), if you are nearby, come join us!">Maceió DEV Meetup</a><a href="//www.youtube.com/channel/UCGtfJjAR5JeBPAmxN_ZHx4Q?view_as=subscriber" title="I often share screencasts on YouTube">Screencasts</a></p></div></main><footer class="footer"><span class="footer__copyright">Copyright © 2019. </span><span class="footer__links">Powered by <a href="//gridsome.org"> Gridsome </a></span></footer></div>
+    <script src="/assets/js/app.548f02cd.js" defer></script><script src="/assets/js/component--post.ffd855bb.js" defer></script>
+  </body>
+</html>
